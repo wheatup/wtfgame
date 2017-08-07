@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name='viewport' content='width=device-width,user-scalable=no'>
+    <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent'>
+    <meta name='apple-mobile-web-app-capable' content='yes'>
+    <meta name='apple-mobile-web-app-title' content='wtfgame'>
+    <link rel='apple-touch-icon' href='http://engine.zuoyouxi.com/qici.png'>
+    <link rel='apple-touch-startup-image' href='http://engine.zuoyouxi.com/qici.png'>
+
+    <link rel="shortcut icon" href="http://engine.zuoyouxi.com/qici.ico" />
+    <title>wtfgame</title>
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="./Assets/css/style.css"/>
+
+    <script>
+        // The game configuration
+		window['address'] = "请输入游戏服务器地址";
+        var qici = {};
+        qici.config = {
+            gameName: 'wtfgame',
+            localStorageID: 'cc.wtfgame.wtfgame',
+            gameInstance: 'qc_game',
+            frameRate: {"mobile":60,"desktop":60},
+            fixedGameSize: {"enabled":true,"width":960,"height":640},
+            resolutionRatio: 1,
+            customSettings: {},
+            backgroundColor: 9417215,
+            runInBackground: true,
+            antialias: true,
+            transparent: false,
+            developerMode: false,
+            renderer: 'Auto',
+            loadingPrefab: '',
+            scene: [
+                "Assets/scene/GameScene"
+            ],
+            entryScene : 'Assets/scene/GameScene',
+            dirtyRectangles: true,
+            loadingHandler: 'progressHandler',
+            loading: {
+                loadingText: 'Loading, please wait...',
+                loadingInterval: 200,
+                brightingInterval: 10,
+                blinkingCount: 5,
+                blinkingInterval: 70,
+                fadingInInterval: 400,
+                fadingOutInterval: 600
+            }
+        };
+
+ 		_pluginVariables_={}
+
+        qici.scripts = [
+            './Assets/meta/globalUrlMap.js',
+            'http://engine.zuoyouxi.com/lib/1.1.7/phaser.min.js',
+            'http://engine.zuoyouxi.com/lib/1.1.7/webfontloader.js',
+            'http://engine.zuoyouxi.com/lib/1.1.7/qc-core.js',
+            'http://engine.zuoyouxi.com/lib/qc-webgl.js',
+            // sound duration
+            './Assets/meta/soundDuration.js',
+            // asset count
+            './Assets/meta/assetCountMap.js',
+            // External scripts for plugins
+
+            // User scripts
+            './js/game-scripts-mini-1.js'
+        ];
+
+        // Asset count that need preload in boot
+        qici.loadingAssetCount = 19;
+    </script>
+</head>
+
+<body onload="qici.init();">
+    <div style="overflow:hidden;padding:0;margin:0;width:100%;height:100%;">
+        <div id="gameDiv" style="position:relative;"></div>
+    </div>
+    <script src='http://engine.zuoyouxi.com/lib/1.1.7/qc-loading.js'></script>
+</body>
+
+</html>

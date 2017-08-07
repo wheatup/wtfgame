@@ -1,0 +1,4 @@
+WTFGame文件夹为客户端
+WTFGame.war 文件为服务器
+请将war搭载在支持webSocket的服务器上，推荐GlassFish4
+在index.html中，将window['address']一栏后面的值填写为服务器地址，例："ws://www.wtfgame.cc/WTFGame/server"
