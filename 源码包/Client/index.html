@@ -1,0 +1,113 @@
+<!--编辑器入口HTML文件-->
+<!DOCTYPE html>
+<html manifest="editor.appcache">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name='viewport' content='width=device-width,user-scalable=no'>
+    <link rel="shortcut icon" href="lib/imgs/qici.ico" />
+    <title>QCEngine</title>
+    <style>
+        /*文本框选中背景 chrome会混合颜色*/
+        /*
+        input::selection {
+            background: rgb(69, 104, 115);
+            color: white;
+        }
+        input::-moz-selection {
+            background: rgb(69, 104, 115);
+            color: white;
+        }
+        */;
+        /*去掉outline*/
+        textarea:focus, input:focus{
+            outline: none;
+        }
+    </style>
+    <script>
+        QCDefault = {
+            toolTipDelay: 1000,
+            labelFont: '11px Arial',
+            Shape: {
+                diamond: function (g, x, y, w, h) {
+                    g.moveTo(x + w / 2, y);
+                    g.lineTo(x, y + h / 2);
+                    g.lineTo(x + w / 2, y + h);
+                    g.lineTo(x + w, y + h / 2);
+                    g.closePath();
+                },
+                event: function (g, x, y, w, h) {
+                    g.moveTo(x, y);
+                    g.lineTo(x + w, y);
+                    g.lineTo(x + w, y + h / 4 * 3);
+                    g.lineTo(x + w / 2, y + h);
+                    g.lineTo(x, y + h / 4 * 3);
+                    g.closePath();
+                },
+                action: function (g, x, y, w, h, info, data, view) {
+                    g.rect(x+2,y,w-4,h);
+                    if (info.loop)
+                    {
+                        var duration = data.a('duration');
+                        if (duration === qc.MAX_DURATION)
+                            return;
+                        var timeLineZoom = view.timeLineZoom;
+                        var winWidth = view.width - view.translateX;
+                        var width = duration * 8 * timeLineZoom;
+                        var i = 0;
+                        x += 2;
+                        while(x < winWidth)
+                        {
+                            i++;
+                            x += width;
+                            g.moveTo(x, y);
+                            g.lineTo(x, y + h);
+                        }
+                    }
+                    else
+                    {
+                        g.rect(x, y+5, 4, h-10);
+                        g.rect(x+w-4, y+5, 4, h-10);
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        /*去掉Notification导致的滚动条*/
+        body {
+            overflow: hidden;
+        }
+
+        textarea::-webkit-scrollbar {
+            width: 8px;
+        }
+        textarea::-webkit-scrollbar-thumb {
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .qc-widget-tooltip {
+            max-width: 300px !important;
+            text-wrap: normal !important;
+            white-space: normal !important;
+        }
+    </style>
+
+    <script type="text/javascript" src="lib/qc-widget.js"></script>
+    <script type="text/javascript" src="lib/qc-editor.js"></script>
+    <script type="text/javascript" src="lib/prettify.js"></script>
+    <script type="text/javascript" src="lib/prettify-lang-css.js"></script>
+    <script type="text/javascript" src="lib/socket.io.js"></script>
+    <link rel="stylesheet" href="lib/desert.css">
+    <!-- 以下为插件的扩展脚本 -->
+    <script src="Plugins/com.qici.arcadePhysics/Editor/RigidBodyEditor.js?20170623185459" plugin_id="com.qici.arcadePhysics"></script>
+    <script src="Plugins/com.qici.lockOrientation/Editor/LockOrientationEditor.js?20170623185459" plugin_id="com.qici.lockOrientation"></script>
+
+    <!-- 以下为用户的扩展脚本 -->
+
+</head>
+
+<body onload="G.init();">
+</body>
+</html>

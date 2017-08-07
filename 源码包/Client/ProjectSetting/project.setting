@@ -1,0 +1,76 @@
+{
+  "gameName": "wtfgame",
+  "localStorageID": "cc.wtfgame.wtfgame",
+  "gameInstance": "qc_game",
+  "frameRate": {
+    "mobile": 60,
+    "desktop": 60
+  },
+  "fixedGameSize": {
+    "enabled": true,
+    "width": 960,
+    "height": 640
+  },
+  "backgroundColor": 9417215,
+  "runInBackground": true,
+  "antialias": true,
+  "renderer": "Auto",
+  "transparent": false,
+  "developerMode": false,
+  "appCache": false,
+  "dirtyRectangles": true,
+  "dirtyRectanglesShow": false,
+  "customSettings": {},
+  "publish": {
+    "android": "build/android",
+    "ios": "build/ios",
+    "browsers": "build/browsers",
+    "browsers_timestamp": true,
+    "android_timestamp": true,
+    "ios_timestamp": true
+  },
+  "ios": {
+    "target": "8.1",
+    "buildCode": 1,
+    "frameRate": "60",
+    "renderer": "Auto",
+    "defaultOrientation": 0,
+    "splashScaling": 2,
+    "autoOrientation": {
+      "portrait": true,
+      "landscapeRight": true,
+      "portraitUpsideDown": true,
+      "landscapeLeft": true
+    },
+    "bundleId": ""
+  },
+  "android": {
+    "bundleId": "",
+    "target": 19,
+    "defaultOrientation": 0,
+    "autoOrientation": {
+      "portrait": true,
+      "portraitUpsideDown": true,
+      "landscapeRight": true,
+      "landscapeLeft": true
+    },
+    "frameRate": 60,
+    "renderer": "Auto",
+    "keystoreFile": "",
+    "keystorePassword": "",
+    "keyAlias": "abcd",
+    "keyAliasPassword": "",
+    "splashImage": {
+      "asset": "de860ea8-12f2-4bc7-9e45-d6a504a1cf67",
+      "url": "Assets/sprites/loading.bin",
+      "frame": "other/zhu2"
+    },
+    "minTarget": 16,
+    "buildCode": 1,
+    "makeApk": false
+  },
+  "toolFlag": 508,
+  "version": "1",
+  "buildVersion": "1",
+  "resolutionRatio": 1
+}
